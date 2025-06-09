@@ -39,7 +39,7 @@ python -m venv env && env\Scripts\activate && pip install --upgrade pip && pip i
 
 3. Crear un archivo `.env` en la raíz del proyecto con tu clave de OpenAI:
 
-echo OPENAI_API_KEY="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" > .env
+echo OPENAI_API_KEY="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" > .env
 
 4. Ejecutar el servidor de desarrollo:
 
