@@ -27,36 +27,29 @@ Este es el backend del proyecto de TFM. Está desarrollado en Python con FastAPI
 - `planning.db`: base de datos SQLite.
 - `.env`: variables de entorno (no se debe subir al repositorio).
 
-## Instalación
+## Pasos para ejecutar el proyecto
 
-1. Clonar el repositorio:
+1. Clonar el repositorio y acceder a la carpeta:
 
-```bash
-git clone https://github.com/Alexmarfac/planning-backend.git
-cd planning-backend
-```
+git clone https://github.com/Alexmarfac/planning-backend.git && cd planning-backend
 
-2. Crear un entorno virtual e instalar las dependencias:
+2. Crear un entorno virtual e instalar las dependencias necesarias:
 
-```bash
-python -m venv venv
-venv\Scripts\activate  # En Windows
-pip install -r requirements.txt
-```
+python -m venv env && env\Scripts\activate && pip install --upgrade pip && pip install -r requirements.txt
 
-3. Crear un archivo `.env` con la siguiente variable:
+3. Crear un archivo `.env` en la raíz del proyecto con tu clave de OpenAI:
 
-```
-OPENAI_API_KEY=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
-```
+echo OPENAI_API_KEY="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" > .env
 
 4. Ejecutar el servidor de desarrollo:
 
-```bash
 uvicorn main:app --reload --port 8888
-```
 
-Se puede acceder a la documentación interactiva en [http://localhost:8888/docs](http://localhost:8888/docs)
+5. Acceder a la documentación interactiva:
+
+- Swagger UI: http://127.0.0.1:8888/docs
+- ReDoc: http://127.0.0.1:8888/redoc
+- [http://localhost:8888/docs](http://localhost:8888/docs)
 
 ## Notas
 
