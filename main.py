@@ -37,7 +37,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Eventos de arranque y apagado\@app.on_event("startup")
+# Eventos de arranque y apagado
+@app.on_event("startup")
 def on_startup():
     init_db()
     logger.info("Aplicación arrancada y base de datos inicializada.")
