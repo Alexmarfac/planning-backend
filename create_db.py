@@ -32,14 +32,14 @@ def seed_pbis_and_stories(session):
                 "title": "PBI Login y Seguridad",
                 "description": "Autenticación y gestión de sesiones",
                 "stories": [
-                    {"title": "Usuario puede iniciar sesión", "raw_description": "Login básico", "criticity": 2, "story_points": 3, "business_value": 8, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
-                    {"title": "Usuario puede cerrar sesión", "raw_description": "Logout visible y seguro", "criticity": 1, "story_points": 1, "business_value": 5, "complexity": 1, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Bloqueo tras intentos fallidos", "raw_description": "Bloqueo tras 3 intentos", "criticity": 4, "story_points": 5, "business_value": 6, "complexity": 3, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Recuperación de contraseña", "raw_description": "Enlace para reset", "criticity": 2, "story_points": 3, "business_value": 7, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
-                    {"title": "Validación de correo", "raw_description": "Email válido al registrarse", "criticity": 1, "story_points": 2, "business_value": 5, "complexity": 1, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Registro de actividad", "raw_description": "Log de sesiones", "criticity": 2, "story_points": 3, "business_value": 4, "complexity": 2, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Inicio de sesión con doble factor", "raw_description": "OTP por email", "criticity": 5, "story_points": 5, "business_value": 9, "complexity": 4, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Página de error personalizada", "raw_description": "Pantalla bonita si falla login", "criticity": 1, "story_points": 1, "business_value": 3, "complexity": 1, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
+                    {"title": "Usuario puede iniciar sesión", "raw_description": "Login básico", "criticity": Criticity.MEDIUM, "story_points": 3, "business_value": 8, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
+                    {"title": "Usuario puede cerrar sesión", "raw_description": "Logout visible y seguro", "criticity": Criticity.LOW, "story_points": 1, "business_value": 5, "complexity": 1, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Bloqueo tras intentos fallidos", "raw_description": "Bloqueo tras 3 intentos", "criticity": Criticity.HIGH, "story_points": 5, "business_value": 6, "complexity": 3, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Recuperación de contraseña", "raw_description": "Enlace para reset", "criticity": Criticity.MEDIUM, "story_points": 3, "business_value": 7, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
+                    {"title": "Validación de correo", "raw_description": "Email válido al registrarse", "criticity": Criticity.LOW, "story_points": 2, "business_value": 5, "complexity": 1, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Registro de actividad", "raw_description": "Log de sesiones", "criticity": Criticity.MEDIUM, "story_points": 3, "business_value": 4, "complexity": 2, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Inicio de sesión con doble factor", "raw_description": "OTP por email", "criticity": Criticity.HIGH, "story_points": 5, "business_value": 9, "complexity": 4, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Página de error personalizada", "raw_description": "Pantalla bonita si falla login", "criticity": Criticity.LOW, "story_points": 1, "business_value": 3, "complexity": 1, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
                 ]
             }
         ],
@@ -48,14 +48,14 @@ def seed_pbis_and_stories(session):
                 "title": "PBI Perfil de Usuario",
                 "description": "Gestión del perfil del usuario",
                 "stories": [
-                    {"title": "Editar perfil", "raw_description": "Modificar nombre, email", "criticity": 2, "story_points": 3, "business_value": 6, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
-                    {"title": "Subir foto de perfil", "raw_description": "Imagen visible", "criticity": 1, "story_points": 2, "business_value": 4, "complexity": 1, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
-                    {"title": "Eliminar cuenta", "raw_description": "Borrar perfil del sistema", "criticity": 3, "story_points": 5, "business_value": 7, "complexity": 3, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Cambiar contraseña", "raw_description": "Seguridad de cuenta", "criticity": 2, "story_points": 3, "business_value": 5, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Ver historial de sesiones", "raw_description": "Lista de inicios recientes", "criticity": 2, "story_points": 3, "business_value": 6, "complexity": 2, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Notificaciones por email", "raw_description": "Avisos por cambios", "criticity": 2, "story_points": 2, "business_value": 4, "complexity": 2, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Configurar visibilidad de perfil", "raw_description": "Privado o público", "criticity": 3, "story_points": 3, "business_value": 5, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
-                    {"title": "Validación de cambios", "raw_description": "Verificación de seguridad", "criticity": 5, "story_points": 4, "business_value": 7, "complexity": 3, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Editar perfil", "raw_description": "Modificar nombre, email", "criticity": Criticity.MEDIUM, "story_points": 3, "business_value": 6, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
+                    {"title": "Subir foto de perfil", "raw_description": "Imagen visible", "criticity": Criticity.LOW, "story_points": 2, "business_value": 4, "complexity": 1, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 0},
+                    {"title": "Eliminar cuenta", "raw_description": "Borrar perfil del sistema", "criticity": Criticity.HIGH, "story_points": 4, "business_value": 7, "complexity": 3, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Cambiar contraseña", "raw_description": "Seguridad de cuenta", "criticity": Criticity.MEDIUM, "story_points": 3, "business_value": 5, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Ver historial de sesiones", "raw_description": "Lista de inicios recientes", "criticity": Criticity.MEDIUM, "story_points": 3, "business_value": 6, "complexity": 2, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Notificaciones por email", "raw_description": "Avisos por cambios", "criticity": Criticity.LOW, "story_points": 2, "business_value": 4, "complexity": 2, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Configurar visibilidad de perfil", "raw_description": "Privado o público", "criticity": Criticity.MEDIUM, "story_points": 3, "business_value": 5, "complexity": 2, "story_type": StoryType.USER, "continuation": 0, "internal_dependencies": 1},
+                    {"title": "Validación de cambios", "raw_description": "Verificación de seguridad", "criticity": Criticity.HIGH, "story_points": 4, "business_value": 7, "complexity": 3, "story_type": StoryType.TECHNICAL, "continuation": 0, "internal_dependencies": 1},
                 ]
             }
         ]
@@ -78,9 +78,19 @@ def seed_pbis_and_stories(session):
             for story_data in pbi_data["stories"]:
                 story = session.query(Story).filter_by(title=story_data["title"], pbi_id=pbi.id).first()
                 if not story:
+                    # Calcular prioridad según criticidad
+                    criticity = story_data.get("criticity")
+                    priority = {
+                        Criticity.HIGH: 3,
+                        Criticity.MEDIUM: 2,
+                        Criticity.LOW: 1
+                    }.get(criticity, 2)  # Valor por defecto: MEDIA = 2
+
+                    story_data["priority"] = priority
+
                     story = Story(**story_data, pbi_id=pbi.id)
                     session.add(story)
-                    logger.info(f"  - Sembrando Story: {story.title}")
+                    logger.info(f"  - Sembrando Story: {story.title} con prioridad {priority}")
     session.commit()
 
 
