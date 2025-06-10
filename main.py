@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.exc import SQLAlchemyError
 
 from database import Base, engine
-from routers import sprints, pbis, stories, ml
+from routers import sprints, pbis, stories, ml, reset_router 
 
 # Configurar logging
 default_log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -43,7 +43,7 @@ def on_startup():
     init_db()
     logger.info("Aplicación arrancada y base de datos inicializada.")
 
-@ app.on_event("shutdown")
+@app.on_event("shutdown")
 def on_shutdown():
     logger.info("Aplicación detenida.")
 
@@ -69,12 +69,16 @@ def include_routers(app: FastAPI):
         prefix="/ml",
         tags=["ML"],
     )
+    app.include_router(
+        reset_router.router, 
+        prefix="",
+        tags=["Mantenimiento"],
+    )
 
 # Registrar routers
 def main():
     include_routers(app)
     logger.info("Routers registrados en la aplicación.")
-
 
 # Ejecutar registro de routers al importar
 main()
