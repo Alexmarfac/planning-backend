@@ -5,9 +5,11 @@ from pydantic import BaseModel, Field
 
 # ——— ENUMS (INT) ———
 class Criticity(IntEnum):
-    LOW = 1
-    MEDIUM = 2
-    HIGH = 3
+    VERYLOW = 1
+    LOW = 2
+    MEDIUM = 3
+    HIGH = 4
+    VERYHIGH = 5
 
 class StoryType(IntEnum):
     USER = 1
