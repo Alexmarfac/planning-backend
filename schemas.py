@@ -17,9 +17,9 @@ class StoryType(IntEnum):
     BUG = 3
 
 class Priority(IntEnum):
-    P0 = 3  # Alta
-    P1 = 2  # Media
-    P2 = 1  # Baja
+    BAJA = 0
+    MEDIA = 1
+    ALTA = 2
 
 # ——— STORY SCHEMAS ———
 class StoryBase(BaseModel):
