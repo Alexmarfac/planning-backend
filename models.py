@@ -42,7 +42,7 @@ class Story(Base):
     criticity = Column(Integer, nullable=True)  # 1: baja, 2: media, 3: alta
     story_points = Column(Integer, nullable=True)
     acceptance_criteria = Column(Text, nullable=True)
-    priority = Column(Integer, nullable=True)   # 1: baja, 2: media, 3: alta
+    priority = Column(Integer, nullable=True)   # 0: baja, 1: media, 2: alta
     business_value = Column(Integer, nullable=True)
     complexity = Column(Integer, nullable=True)
     story_type = Column(Integer, nullable=False, default=1)  # 1: usuario, 2: técnica
