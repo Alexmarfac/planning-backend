@@ -11,6 +11,8 @@ import pandas as pd
 import joblib
 from openai import OpenAI, OpenAIError
 from pydantic import BaseModel, Field, validator, ValidationError
+import xgboost as xgb
+
 
 # Configuración de logging
 default_log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
