@@ -58,6 +58,7 @@ class Story(StoryBase):
 
     class Config:
         from_attributes = True
+        use_enum_values = True  
 
 # ——— PBI SCHEMAS ———
 class PBIBase(BaseModel):
@@ -79,6 +80,7 @@ class PBI(PBIBase):
 
     class Config:
         from_attributes = True
+        use_enum_values = True  
 
 # ——— SPRINT SCHEMAS ———
 class SprintBase(BaseModel):
@@ -100,3 +102,4 @@ class Sprint(SprintBase):
 
     class Config:
         from_attributes = True
+        use_enum_values = True  
