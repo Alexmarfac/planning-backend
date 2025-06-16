@@ -81,10 +81,10 @@ def seed_pbis_and_stories(session):
                     # Calcular prioridad según criticidad
                     criticity = story_data.get("criticity")
                     priority = {
-                        Criticity.HIGH: 3,
-                        Criticity.MEDIUM: 2,
-                        Criticity.LOW: 1
-                    }.get(criticity, 2)  # Valor por defecto: MEDIA = 2
+                        Criticity.HIGH: 2,
+                        Criticity.MEDIUM: 1,
+                        Criticity.LOW: 0
+                    }.get(criticity, 1)  # Valor por defecto: MEDIA = 1
 
                     story_data["priority"] = priority
 
