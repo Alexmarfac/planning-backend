@@ -69,7 +69,7 @@ def load_priority_model() -> Optional[Any]:
 
 def calculate_priority(data: Dict[str, Any]) -> Dict[str, Any]:
     """
-    Calcula la prioridad de una historia según el modelo entrenado.
+    Calcula la prioridad de una historia según el modelo entrenado con xgb.train().
     """
     try:
         inp = PriorityCalcInput(**data)
@@ -77,9 +77,12 @@ def calculate_priority(data: Dict[str, Any]) -> Dict[str, Any]:
         logger.error(f'Error validando datos para prioridad: {ve}')
         return {'error': str(ve)}
 
-    model = load_priority_model()
-    if model is None:
+    modelo = load_priority_model()
+    if modelo is None:
         return {'error': 'Modelo ML no disponible.'}
+
+    preprocessor = modelo.get("preprocessor")
+    booster = modelo.get("booster")
 
     try:
         df = pd.DataFrame([{
@@ -88,17 +91,25 @@ def calculate_priority(data: Dict[str, Any]) -> Dict[str, Any]:
             "Criticidad": inp.criticidad,
             "Nº dep inter": inp.internal_dependencies,
             "Continuacion": inp.continuation,
-            "Story Type": inp.story_type  # Ya viene como "User", "Technical", etc.
+            "Story Type": inp.story_type
         }])
 
-        pred = model.predict(df)[0]
-        prioridad_num = int(pred)
-        mapa_prioridad = {0: "baja", 1: "media", 2: "alta"}
-        prioridad_str = mapa_prioridad.get(prioridad_num, "desconocida")
+        # Transformación de datos (OneHot + escalado)
+        df_proc = preprocessor.transform(df)
 
-        logger.info(f'Prioridad predicha: {prioridad_num} → {prioridad_str}')
+        # Conversión a DMatrix
+        dmatrix = xgb.DMatrix(df_proc)
+
+        # Predicción
+        probs = booster.predict(dmatrix)
+        pred = int(np.argmax(probs, axis=1)[0])  # multiclase
+
+        mapa_prioridad = {0: "baja", 1: "media", 2: "alta"}
+        prioridad_str = mapa_prioridad.get(pred, "desconocida")
+
+        logger.info(f'Prioridad predicha: {pred} → {prioridad_str}')
         return {
-            'prioridad_num': prioridad_num,
+            'prioridad_num': pred,
             'prioridad': prioridad_str
         }
 
