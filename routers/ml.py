@@ -72,7 +72,7 @@ def calcular_prioridades_para_sprint(
 
                 res = calculate_priority(payload)
                 if 'error' not in res:
-                    story.priority = res['prioridad']
+                    story.priority = res['prioridad_num']
                     results.append({
                         'story_id': story.id,
                         'title': story.title,
